@@ -1,4 +1,5 @@
 import colors from "vuetify/es5/util/colors";
+const contentful = require("contentful");
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
