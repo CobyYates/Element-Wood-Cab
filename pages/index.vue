@@ -8,15 +8,6 @@
           :copy="page.fields.copyBlock.fields"
           copy-class="my-5"
         >
-          <v-btn
-            color="primary"
-            outlined
-            large
-            class="mx-auto mt-4"
-            to="/contact"
-          >
-            Contact Us
-          </v-btn>
         </CopyBlock>
         <v-btn
           color="primary"

@@ -47,7 +47,10 @@
       </template>
       <template v-if="$vuetify.breakpoint.smAndDown">
         <v-spacer />
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer" name="mobile navigation button" />
+        <v-app-bar-nav-icon
+          @click.stop="drawer = !drawer"
+          name="mobile navigation button"
+        />
       </template>
     </v-app-bar>
 
@@ -86,7 +89,9 @@
               <div class="pt-8 font-weight-light">
                 <p class="mb-1">(702) 803-1201</p>
                 <p class="mb-1">info@elementcabinetdesign.com</p>
-                <p class="mb-1">6283 S. Valley View Blvd. | Suite J Las Vegas, NV 89118</p>
+                <p class="mb-1">
+                  6283 S. Valley View Blvd. | Suite J Las Vegas, NV 89118
+                </p>
               </div>
             </v-col>
           </v-row>
@@ -96,6 +101,27 @@
               <p>Woodcab Factory (C) {{ date }} ALL RIGHTS RESERVED</p>
             </v-col>
           </v-row>
+
+          <v-card
+            flat
+            tile
+            width="100%"
+            class="grey darken-4 white--text text-center"
+            :class="desktop ? 'd-flex align-center' : ''"
+          >
+            <v-card-text>
+              <v-divider inset dark class="py-3 mx-auto c-footer__hr" />
+              <h2 class="mb-3 white--text">OUR SISTER COMPANIES</h2>
+              <div
+                :class="
+                  desktop ? 'justify-space-around align-center' : 'flex-column'
+                "
+                class="d-flex"
+              >
+                <card v-for="card in companies" :key="card.i" v-bind="card" />
+              </div>
+            </v-card-text>
+          </v-card>
         </v-col>
       </v-row>
     </v-footer>
@@ -136,6 +162,26 @@ export default {
           to: "/contact",
         },
       ],
+      companies: [
+        {
+          url: 'https://elementcabinetdesign.com/',
+          externalLink: true,
+          image: 'https://images.ctfassets.net/hyq1onms4p35/5TIAPMfiP1PWVVHAvz8DKg/6c214643acd9153c9e6d8a72d9057c86/element_cd_logo-white-sm.png?h=250',
+          iconSize: '200'
+        },
+        {
+          url: 'https://www.appliancebydesign.com/',
+          externalLink: true,
+          image: 'https://images.ctfassets.net/hyq1onms4p35/2Rflbo95arAY5jmwREA86I/be967598d612f708b5fe7d068d54d283/element_abd_logo-white-sm.png?h=250',
+          iconSize: '200'
+        },
+        // {
+        //   url: 'https://elementcabinetdesign.com/',
+        //   externalLink: true,
+        //   image: 'https://images.ctfassets.net/hyq1onms4p35/5TIAPMfiP1PWVVHAvz8DKg/6c214643acd9153c9e6d8a72d9057c86/element_cd_logo-white-sm.png?h=250',
+        //   iconSize: '200'
+        // },
+      ]
     };
   },
   methods: {
