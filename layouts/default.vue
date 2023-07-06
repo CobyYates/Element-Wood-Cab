@@ -163,6 +163,12 @@ export default {
       ],
       companies: [
         {
+          url: 'https://designmyelement.com/',
+          externalLink: true,
+          image: 'https://images.ctfassets.net/mlbtq7md5tkq/2wCBO6Gly5EoEHhJxYpDqJ/8522162e432ed5ae754ecc733a2d9ffe/element_db_logo-WHITE3x_3x.png?h=250',
+          iconSize: '200'
+        },
+        {
           url: "https://elementcabinetdesign.com/",
           externalLink: true,
           image:
@@ -176,12 +182,6 @@ export default {
             "https://images.ctfassets.net/hyq1onms4p35/2Rflbo95arAY5jmwREA86I/be967598d612f708b5fe7d068d54d283/element_abd_logo-white-sm.png?h=250",
           iconSize: "200",
         },
-        // {
-        //   url: 'https://elementcabinetdesign.com/',
-        //   externalLink: true,
-        //   image: 'https://images.ctfassets.net/hyq1onms4p35/5TIAPMfiP1PWVVHAvz8DKg/6c214643acd9153c9e6d8a72d9057c86/element_cd_logo-white-sm.png?h=250',
-        //   iconSize: '200'
-        // },
       ],
     };
   },
