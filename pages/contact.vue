@@ -78,7 +78,7 @@
               label="Message"
               name="message"
             />
-            <v-btn large outlined color="primary">Submit</v-btn>
+            <v-btn large color="primary">Submit</v-btn>
           </v-form>
         </v-col>
         <v-col cols="12" md="3">

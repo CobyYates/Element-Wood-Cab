@@ -95,28 +95,27 @@
               </div>
             </v-col>
           </v-row>
-          <v-divider dark />
-          <v-row class="pt-10">
+          <!-- <v-divider dark class="mt-3" /> -->
+          <v-row class="pt-6">
             <v-col cols="12" md="5">
               <p>Woodcab Factory (C) {{ date }} ALL RIGHTS RESERVED</p>
             </v-col>
           </v-row>
-
           <v-card
             flat
             tile
             width="100%"
             class="grey darken-4 white--text text-center"
-            :class="desktop ? 'd-flex align-center' : ''"
+            :class="desktop ? 'd-flex align-center' : 'flex-column'"
           >
-            <v-card-text>
-              <v-divider inset dark class="py-3 mx-auto c-footer__hr" />
+            <v-card-text class="px-0">
+              <v-divider dark class="py-3" />
               <h2 class="mb-3 white--text">OUR SISTER COMPANIES</h2>
               <div
                 :class="
                   desktop ? 'justify-space-around align-center' : 'flex-column'
                 "
-                class="d-flex"
+                class="d-flex my-8"
               >
                 <card v-for="card in companies" :key="card.i" v-bind="card" />
               </div>
@@ -164,16 +163,18 @@ export default {
       ],
       companies: [
         {
-          url: 'https://elementcabinetdesign.com/',
+          url: "https://elementcabinetdesign.com/",
           externalLink: true,
-          image: 'https://images.ctfassets.net/hyq1onms4p35/5TIAPMfiP1PWVVHAvz8DKg/6c214643acd9153c9e6d8a72d9057c86/element_cd_logo-white-sm.png?h=250',
-          iconSize: '200'
+          image:
+            "https://images.ctfassets.net/hyq1onms4p35/5TIAPMfiP1PWVVHAvz8DKg/6c214643acd9153c9e6d8a72d9057c86/element_cd_logo-white-sm.png?h=250",
+          iconSize: "200",
         },
         {
-          url: 'https://www.appliancebydesign.com/',
+          url: "https://www.appliancebydesign.com/",
           externalLink: true,
-          image: 'https://images.ctfassets.net/hyq1onms4p35/2Rflbo95arAY5jmwREA86I/be967598d612f708b5fe7d068d54d283/element_abd_logo-white-sm.png?h=250',
-          iconSize: '200'
+          image:
+            "https://images.ctfassets.net/hyq1onms4p35/2Rflbo95arAY5jmwREA86I/be967598d612f708b5fe7d068d54d283/element_abd_logo-white-sm.png?h=250",
+          iconSize: "200",
         },
         // {
         //   url: 'https://elementcabinetdesign.com/',
@@ -181,7 +182,7 @@ export default {
         //   image: 'https://images.ctfassets.net/hyq1onms4p35/5TIAPMfiP1PWVVHAvz8DKg/6c214643acd9153c9e6d8a72d9057c86/element_cd_logo-white-sm.png?h=250',
         //   iconSize: '200'
         // },
-      ]
+      ],
     };
   },
   methods: {
@@ -267,6 +268,10 @@ export default {
   // },
   computed: {
     ...mapState("navigation", ["navItems"]),
+    desktop() {
+      let result = this.$vuetify.breakpoint.mdAndUp;
+      return result;
+    },
   },
   // async fetch() {
   // },
@@ -305,5 +310,9 @@ export default {
     color: #333;
     text-decoration: none;
   }
+}
+
+hr {
+  border-color: #25564b !important;
 }
 </style>

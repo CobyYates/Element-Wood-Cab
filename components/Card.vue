@@ -16,7 +16,7 @@
         contain
       />
     </div>
-    <v-card-title :class="alignment">
+    <v-card-title v-if="title" :class="alignment">
       <h2 :style="{ color: titleColor }">{{ title }}</h2>
     </v-card-title>
     <p

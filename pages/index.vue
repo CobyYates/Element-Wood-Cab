@@ -11,7 +11,6 @@
         </CopyBlock>
         <v-btn
           color="primary"
-          outlined
           large
           class="mx-auto mb-8"
           to="/inspiration-gallery"
