@@ -117,7 +117,7 @@
                 "
                 class="d-flex my-8"
               >
-                <card v-for="card in companies" :key="card.i" v-bind="card" />
+                <card :class="desktop ? '' : 'mb-3'" v-for="card in companies" :key="card.i" v-bind="card" />
               </div>
             </v-card-text>
           </v-card>
@@ -165,7 +165,7 @@ export default {
         {
           url: 'https://designmyelement.com/',
           externalLink: true,
-          image: 'https://images.ctfassets.net/mlbtq7md5tkq/2wCBO6Gly5EoEHhJxYpDqJ/8522162e432ed5ae754ecc733a2d9ffe/element_db_logo-WHITE3x_3x.png?h=250',
+          image: 'https://images.ctfassets.net/mlbtq7md5tkq/2wCBO6Gly5EoEHhJxYpDqJ/60619984090d45774ae314f6f4bd2fe9/element_db_logo-WHITE3x_3x.png?h=250',
           iconSize: '200'
         },
         {
