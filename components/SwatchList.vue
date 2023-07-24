@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="mb-3">Series</h2>
+    <h2 class="mb-3">Finishes</h2>
     <a
       :href="`#${item.id}`"
       class="px-4"

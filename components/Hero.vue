@@ -9,7 +9,7 @@
           delimiter-icon="mdi-circle-medium"
           hide-delimiter-background
           cycle
-          interval="5000"
+          interval="10000"
         >
           <v-carousel-item
             v-for="image in hero.fields.desktopImages"

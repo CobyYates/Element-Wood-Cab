@@ -45,7 +45,7 @@
               name="email"
               :rules="emailRules"
             />
-            <v-radio-group v-model="contactMethod" row class="mt-0">
+            <v-radio-group v-model="contactMethod" name="contactMethod" row class="mt-0">
               <label>Preferred method of contact: </label>
               <v-radio label="Phone" value="phone"></v-radio>
               <v-radio label="Email" value="email"></v-radio>
@@ -54,9 +54,9 @@
               <v-col>
                 <v-text-field
                   outlined
-                  v-model="business"
+                  v-model="businessName"
                   label="Business Name"
-                  name="business"
+                  name="businessName"
                   :rules="businessRules"
                 />
               </v-col>
@@ -78,15 +78,10 @@
               label="Message"
               name="message"
             />
-            <v-btn large color="primary">Submit</v-btn>
+            <v-btn @click="validate" large color="primary">Submit</v-btn>
           </v-form>
         </v-col>
         <v-col cols="12" md="3">
-          <h2>More Info</h2>
-          <p>
-            Please contact us with any questions or for more information about
-            our products.
-          </p>
           <h2>Wood Cab Factory:</h2>
           <p class="mb-0">6283 S. Valley View Blvd. | Suite J</p>
           <p>Las Vegas, NV 89118</p>
@@ -111,6 +106,7 @@ export default {
       phone: null,
       email: null,
       business: null,
+      businessName: null,
       contactMethod: null,
       message: null,
       firstRules: [(v) => !!v || "First name is required"],
@@ -161,7 +157,7 @@ export default {
       emailjs
         .sendForm(
           "service_tzx74ns",
-          "template_imnlwnv",
+          "template_svj4b69",
           data,
           "NILnSqkxVCEun1-US"
         )

@@ -8,7 +8,7 @@
         class="flipbook"
         v-model="value"
         :pages="pages"
-        :click-to-zoom="true"
+        :click-to-zoom="false"
         v-slot="flipbook"
       >
         <div :class="`flipbook__icons-${desktop ? 'desktop' : 'mobile'}`" class="flipbook__icons">
