@@ -145,10 +145,6 @@ export default {
           to: "/",
         },
         {
-          title: "Door Styles",
-          to: "/door-styles",
-        },
-        {
           title: "Inspiration Gallery",
           to: "/inspiration-gallery",
         },
