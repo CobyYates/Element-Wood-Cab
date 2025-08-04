@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col>
+    <v-col class="pa-0">
       <Hero v-if="page.fields.hero" :hero="page.fields.hero" />
       <CopyBlock
         v-if="page.fields.copyBlock"
@@ -36,19 +36,20 @@
       </v-row>
       <v-row v-if="page.fields.flipbookPdf">
         <v-col>
-          <v-tabs v-model="tab" background-color="primary" dark centered>
-            <v-tab
-              v-for="(brochure, index) in page?.fields?.flipbookPdf"
-              :key="brochure.sys.id"
-              :value="brochure.sys.id"
-            >
-              {{ brochure.fields.title }}
-            </v-tab>
-          </v-tabs>
+          <div class="d-flex flex-column">
+            <v-tabs v-model="tab" background-color="primary" dark centered>
+              <v-tab
+                v-for="(brochure, index) in page?.fields?.flipbookPdf"
+                :key="brochure.sys.id"
+                :value="brochure.sys.id"
+              >
+                {{ brochure.fields.title }}
+              </v-tab>
+            </v-tabs>
+          </div>
           <v-tabs-window v-model="tab">
-            <v-tabs-window-item
-            >
-            <Book :pdf="page?.fields?.flipbookPdf[tab]" />
+            <v-tabs-window-item>
+              <Book :pdf="page?.fields?.flipbookPdf[tab]" />
             </v-tabs-window-item>
           </v-tabs-window>
         </v-col>
