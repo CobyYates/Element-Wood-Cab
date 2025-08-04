@@ -5,6 +5,7 @@
   >
     <client-only>
       <flipbook
+        :key="pdf.sys && pdf.sys.id"
         class="flipbook"
         v-model="value"
         :pages="pages"
@@ -36,19 +37,25 @@ export default {
   props: {
     pdf: {
       type: Object,
-      default: () => {},
+      default: () => ({}),
     },
   },
   computed: {
     pages() {
-      const page = this.pdf.fields.pdf.map((e) => e.fields.file.url);
-      page.unshift(null);
-      return page;
+      // Defensive: ensure structure exists
+      const arr =
+        this.pdf &&
+        this.pdf.fields &&
+        Array.isArray(this.pdf.fields.pdfPage)
+          ? this.pdf.fields.pdfPage.map((e, i) => e.fields?.file?.url || null)
+          : [];
+      arr.unshift(null);
+      // console.log("PDF Pages:", arr);
+      return arr;
     },
     desktop() {
-      let result = this.$vuetify.breakpoint.mdAndUp
-      return result
-    }
+      return this.$vuetify.breakpoint.mdAndUp;
+    },
   },
 };
 </script>

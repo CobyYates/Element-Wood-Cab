@@ -34,9 +34,23 @@
           </v-row>
         </v-col>
       </v-row>
-      <v-row v-if="page.fields.flipbook" class="mb-10">
+      <v-row v-if="page.fields.flipbookPdf">
         <v-col>
-          <Book :pdf="page.fields.flipbook" />
+          <v-tabs v-model="tab" background-color="primary" dark centered>
+            <v-tab
+              v-for="(brochure, index) in page?.fields?.flipbookPdf"
+              :key="brochure.sys.id"
+              :value="brochure.sys.id"
+            >
+              {{ brochure.fields.title }}
+            </v-tab>
+          </v-tabs>
+          <v-tabs-window v-model="tab">
+            <v-tabs-window-item
+            >
+            <Book :pdf="page?.fields?.flipbookPdf[tab]" />
+            </v-tabs-window-item>
+          </v-tabs-window>
         </v-col>
       </v-row>
     </v-col>
@@ -56,7 +70,9 @@ const contentfulClient = createClient();
 export default {
   name: "index",
   data() {
-    return {};
+    return {
+      tab: null,
+    };
   },
   asyncData({ env, params }) {
     return contentfulClient
@@ -65,8 +81,11 @@ export default {
         "fields.slug": params.id,
       })
       .then((page) => {
+        // Set initial tab to first brochure's id if available
+        const flipbooks = page.items[0]?.fields?.flipbookPdf;
         return {
           page: page.items[0],
+          tab: flipbooks && flipbooks.length > 0 ? flipbooks[0].sys.id : null,
         };
       })
       .catch(console.error);
@@ -83,7 +102,7 @@ h4,
 p,
 a,
 .v-btn {
-  font-family: "Tw Cen MT", sans-serif!important;
+  font-family: "Tw Cen MT", sans-serif !important;
 }
 h2 {
   font-size: 1.6rem;
