@@ -36,12 +36,13 @@
       </v-row>
       <v-row v-if="page.fields.flipbookPdf">
         <v-col>
-          <div class="d-flex flex-column">
+          <div>
             <v-tabs v-model="tab" background-color="primary" dark centered>
               <v-tab
                 v-for="(brochure, index) in page?.fields?.flipbookPdf"
                 :key="brochure.sys.id"
                 :value="brochure.sys.id"
+                class="px-10"
               >
                 {{ brochure.fields.title }}
               </v-tab>

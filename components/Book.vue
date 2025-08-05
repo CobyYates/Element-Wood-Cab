@@ -9,17 +9,26 @@
         class="flipbook"
         v-model="value"
         :pages="pages"
-        :click-to-zoom="false"
+        :click-to-zoom="true"
         v-slot="flipbook"
       >
-        <div :class="`flipbook__icons-${desktop ? 'desktop' : 'mobile'}`" class="flipbook__icons">
+        <div
+          :class="`flipbook__icons-${desktop ? 'desktop' : 'mobile'}`"
+          class="flipbook__icons"
+        >
           <v-btn text @click="flipbook.flipLeft">
-            <v-icon :left="desktop || false" :size="desktop ? 20 : 50">mdi-chevron-left</v-icon>
+            <v-icon :left="desktop || false" :size="desktop ? 20 : 50">
+              mdi-chevron-left
+            </v-icon>
             <span v-if="desktop">Previous Page</span>
           </v-btn>
+          <v-icon @click="flipbook.zoomOut">mdi-magnify-minus-outline</v-icon>
+          <v-icon @click="flipbook.zoomIn">mdi-magnify-plus-outline</v-icon>
           <v-btn text @click="flipbook.flipRight">
             <span v-if="desktop">Next Page</span>
-            <v-icon :right="desktop || false" :size="desktop ? 20 : 50">mdi-chevron-right</v-icon>
+            <v-icon :right="desktop || false" :size="desktop ? 20 : 50">
+              mdi-chevron-right
+            </v-icon>
           </v-btn>
         </div>
       </flipbook>
@@ -44,9 +53,7 @@ export default {
     pages() {
       // Defensive: ensure structure exists
       const arr =
-        this.pdf &&
-        this.pdf.fields &&
-        Array.isArray(this.pdf.fields.pdfPage)
+        this.pdf && this.pdf.fields && Array.isArray(this.pdf.fields.pdfPage)
           ? this.pdf.fields.pdfPage.map((e, i) => e.fields?.file?.url || null)
           : [];
       arr.unshift(null);
