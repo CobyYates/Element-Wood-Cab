@@ -11,6 +11,7 @@
         :pages="pages"
         :click-to-zoom="true"
         v-slot="flipbook"
+        v-if="pages.length > 1"
       >
         <div
           :class="`flipbook__icons-${desktop ? 'desktop' : 'mobile'}`"
@@ -32,6 +33,16 @@
           </v-btn>
         </div>
       </flipbook>
+      <v-card
+        v-else
+        max-width="872"
+        height="80vh"
+        elevation="6"
+        class="flipbook__message d-flex align-center justify-center mx-auto mb-10"
+        >
+        <h2>Coming Soon</h2>
+        </v-card
+      >
     </client-only>
   </div>
 </template>
@@ -81,6 +92,8 @@ export default {
     &-mobile {
       top: 70px;
     }
+  }
+  &__message {
   }
 }
 </style>
