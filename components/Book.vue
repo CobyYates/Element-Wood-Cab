@@ -1,7 +1,7 @@
 <template>
   <div
     :class="$vuetify.breakpoint.mdAndUp ? 'pt-16' : ''"
-    class="flipbook__container mx-auto"
+    class="flipbook__container mx-auto mb-10"
   >
     <client-only>
       <flipbook
@@ -38,7 +38,7 @@
         width="90%"
         height="80vh"
         elevation="6"
-        class="flipbook__message d-flex align-center justify-center mx-auto ma-10"
+        class="flipbook__message d-flex align-center justify-center mx-auto"
       >
         <h2>Coming Soon</h2>
       </v-card>
