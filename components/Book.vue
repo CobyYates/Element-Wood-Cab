@@ -6,7 +6,7 @@
     <client-only>
       <flipbook
         :key="pdf.sys && pdf.sys.id"
-        class="flipbook"
+        class="flipbook pt-sm-16 pt-md-0"
         v-model="value"
         :pages="pages"
         :click-to-zoom="true"
@@ -15,7 +15,7 @@
       >
         <div
           :class="`flipbook__icons-${desktop ? 'desktop' : 'mobile'}`"
-          class="flipbook__icons"
+          class="flipbook__icons text-center"
         >
           <v-btn text @click="flipbook.flipLeft">
             <v-icon :left="desktop || false" :size="desktop ? 20 : 50">
@@ -23,8 +23,22 @@
             </v-icon>
             <span v-if="desktop">Previous Page</span>
           </v-btn>
-          <v-icon @click="flipbook.zoomOut">mdi-magnify-minus-outline</v-icon>
-          <v-icon @click="flipbook.zoomIn">mdi-magnify-plus-outline</v-icon>
+          <v-icon
+            @click="flipbook.zoomOut"
+            :class="desktop ? 'mx-4' : 'mx-10'"
+            :size="desktop ? '30' : '40'"
+            color="black"
+          >
+            mdi-magnify-minus-outline
+          </v-icon>
+          <v-icon
+            @click="flipbook.zoomIn"
+            :class="desktop ? 'mx-4' : 'mx-10'"
+            :size="desktop ? '30' : '40'"
+            color="black"
+          >
+            mdi-magnify-plus-outline
+          </v-icon>
           <v-btn text @click="flipbook.flipRight">
             <span v-if="desktop">Next Page</span>
             <v-icon :right="desktop || false" :size="desktop ? 20 : 50">
@@ -61,13 +75,11 @@ export default {
   },
   computed: {
     pages() {
-      // Defensive: ensure structure exists
       const arr =
         this.pdf && this.pdf.fields && Array.isArray(this.pdf.fields.pdfPage)
           ? this.pdf.fields.pdfPage.map((e, i) => e.fields?.file?.url || null)
           : [];
       arr.unshift(null);
-      // console.log("PDF Pages:", arr);
       return arr;
     },
     desktop() {
@@ -86,13 +98,14 @@ export default {
   position: relative;
   &__icons {
     position: absolute;
+    width: 100%;
     left: 50%;
     transform: translate(-50%, -50%);
     &-desktop {
       top: -30px;
     }
     &-mobile {
-      top: 70px;
+      top: 30px;
     }
   }
   &__message {
