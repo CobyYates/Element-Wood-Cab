@@ -91,9 +91,7 @@ export default {
 
 <style lang="scss" scoped>
 .flipbook {
-  &__container {
-    max-width: 850px;
-  }
+  min-width: 100%;
   height: 85vh !important;
   position: relative;
   &__icons {
