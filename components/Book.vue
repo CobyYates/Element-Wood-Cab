@@ -11,7 +11,7 @@
         :pages="pages"
         :click-to-zoom="true"
         v-slot="flipbook"
-        v-if="pages.length > 1"
+        v-if="pages.length > 0"
       >
         <div
           :class="`flipbook__icons-${desktop ? 'desktop' : 'mobile'}`"
