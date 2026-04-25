@@ -77,7 +77,9 @@ export default {
     pages() {
       const arr =
         this.pdf && this.pdf.fields && Array.isArray(this.pdf.fields.pdfPage)
-          ? this.pdf.fields.pdfPage.map((e, i) => e.fields?.file?.url || null)
+          ? this.pdf.fields.pdfPage.map((e, i) =>
+              e.fields?.file?.url ? `${e.fields.file.url}?fm=png` : null
+            )
           : [];
           if(arr?.length > 2) {
             arr.unshift(null);
