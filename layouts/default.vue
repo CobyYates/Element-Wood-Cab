@@ -72,7 +72,7 @@
       <v-icon>mdi-chevron-up</v-icon>
     </v-btn>
 
-    <v-footer class="mx-0">
+    <v-footer class="mx-0 footer">
       <v-row class="grey darken-4 white--text">
         <v-col cols="11" md="8" class="mx-auto py-10 my-6">
           <v-row>
@@ -87,10 +87,14 @@
             <v-col cols="12" md="4" class="ml-auto text-end">
               <h3 class="font-weight-light">GET IN TOUCH</h3>
               <div class="pt-8 font-weight-light">
-                <p class="mb-1">(702) 803-1201</p>
-                <p class="mb-1">info@elementcabinetdesign.com</p>
+                <p class="mb-1"><a href="tel:7022462545">(702) 246-2545</a></p>
                 <p class="mb-1">
-                  6283 S. Valley View Blvd. | Suite J Las Vegas, NV 89118
+                  <a href="mailto:info@woodcabfactory.com">
+                    info@woodcabfactory.com
+                  </a>
+                </p>
+                <p class="mb-1">
+                  7370 Dean Martin Dr., Suite 401B Las Vegas, NV 89139
                 </p>
               </div>
             </v-col>
@@ -117,7 +121,12 @@
                 "
                 class="d-flex my-8"
               >
-                <card :class="desktop ? '' : 'mb-3'" v-for="card in companies" :key="card.i" v-bind="card" />
+                <card
+                  :class="desktop ? '' : 'mb-3'"
+                  v-for="card in companies"
+                  :key="card.i"
+                  v-bind="card"
+                />
               </div>
             </v-card-text>
           </v-card>
@@ -159,10 +168,11 @@ export default {
       ],
       companies: [
         {
-          url: 'https://designmyelement.com/',
+          url: "https://designmyelement.com/",
           externalLink: true,
-          image: 'https://images.ctfassets.net/mlbtq7md5tkq/2wCBO6Gly5EoEHhJxYpDqJ/60619984090d45774ae314f6f4bd2fe9/element_db_logo-WHITE3x_3x.png?h=250',
-          iconSize: '200'
+          image:
+            "https://images.ctfassets.net/mlbtq7md5tkq/2wCBO6Gly5EoEHhJxYpDqJ/60619984090d45774ae314f6f4bd2fe9/element_db_logo-WHITE3x_3x.png?h=250",
+          iconSize: "200",
         },
         {
           url: "https://elementcabinetdesign.com/",
@@ -303,9 +313,13 @@ export default {
     padding: 0 10px;
   }
   a {
-    color: #333;
+    color: #333 !important;
     text-decoration: none;
   }
+}
+
+.footer a {
+  color: #fff !important;
 }
 
 hr {

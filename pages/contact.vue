@@ -1,9 +1,11 @@
 <template>
-  <v-row>
+  <v-row class="contact-form">
     <v-col>
       <v-row justify="center" class="py-16">
         <v-col cols="12" md="6">
-          <h1 class="mb-10">Please use the contact form to request more information</h1>
+          <h1 class="mb-10">
+            Please use the contact form to request more information
+          </h1>
           <v-form
             @submit.prevent="valid ? submit : validate"
             v-model="valid"
@@ -45,7 +47,12 @@
               name="email"
               :rules="emailRules"
             />
-            <v-radio-group v-model="contactMethod" name="contactMethod" row class="mt-0">
+            <v-radio-group
+              v-model="contactMethod"
+              name="contactMethod"
+              row
+              class="mt-0"
+            >
               <label>Preferred method of contact: </label>
               <v-radio label="Phone" value="phone"></v-radio>
               <v-radio label="Email" value="email"></v-radio>
@@ -82,13 +89,13 @@
           </v-form>
         </v-col>
         <v-col cols="12" md="3">
-          <h2>Wood Cab Factory:</h2>
-          <p class="mb-0">6283 S. Valley View Blvd. | Suite J</p>
-          <p>Las Vegas, NV 89118</p>
+          <h2>WoodCab Sales Office:</h2>
+          <p class="mb-0">7370 Dean Martin Dr., Suite 401B</p>
+          <p>Las Vegas, NV 89139</p>
           <h2>Office:</h2>
-          <p>(702) 803-1201</p>
+          <p><a href="tel:7022462545">(702) 246-2545</a></p>
           <h2>Business Hours:</h2>
-          <p>M-F 8am – 6:30pm MST</p>
+          <p>M-F 8am - 3:30pm MST</p>
         </v-col>
       </v-row>
     </v-col>
@@ -185,11 +192,15 @@ p,
 a,
 label,
 .v-btn {
-  font-family: "Tw Cen MT", sans-serif!important;
+  font-family: "Tw Cen MT", sans-serif !important;
 }
 h2 {
   font-size: 1.6rem;
   font-weight: 600;
   color: rgb(110, 110, 113);
+}
+
+.contact-form a {
+  color: #333 !important;
 }
 </style>
